@@ -19,25 +19,25 @@ hostname internx-vagrant
 echo "--------------------------------------------------"
 echo "Installing core"
 echo "--------------------------------------------------"
-#/vagrant/sh/core.sh
+/vagrant/sh/core.sh
 
 # Install Node.js
 echo "--------------------------------------------------"
 echo "Installing NodeJS"
 echo "--------------------------------------------------"
-#/vagrant/sh/nodejs.sh
+/vagrant/sh/nodejs.sh
 
 # Install MongoDB
 echo "--------------------------------------------------"
 echo "Installing MongoDB"
 echo "--------------------------------------------------"
-#/vagrant/sh/mongodb.sh
+/vagrant/sh/mongodb.sh
 
 # Install Beanstalk
 echo "--------------------------------------------------"
 echo "Installing Beanstalk"
 echo "--------------------------------------------------"
-#/vagrant/sh/beanstalk.sh
+/vagrant/sh/beanstalk.sh
 
 # Install Rails
 echo "--------------------------------------------------"

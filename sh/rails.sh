@@ -11,17 +11,17 @@ apt-get -y install make build-essential libssl-dev libreadline6-dev zlib1g-dev l
 apt-get -y install xvfb
 
 # install rbenv and ruby-build
-git clone git://github.com/sstephenson/rbenv.git .rbenv
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-exec $SHELL
+sudo -u vagrant git clone git://github.com/sstephenson/rbenv.git /home/vagrant/.rbenv
+sudo -u vagrant echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> /home/vagrant/.bashrc
+sudo -u vagrant echo 'eval "$(rbenv init -)"' >> /home/vagrant/.bashrc
+sudo -u vagrant git clone git://github.com/sstephenson/ruby-build.git /home/vagrant/.rbenv/plugins/ruby-build
 
-git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
-exec $SHELL
+# no rdoc for installed gems
+sudo -u vagrant echo 'gem: --no-ri --no-rdoc' >> /home/vagrant/.gemrc
 
-#rbenv install 2.1.0
-#rbenv global 2.1.0
-ruby -v
-
-echo "gem: --no-ri --no-rdoc" > ~/.gemrc
+# install required ruby versions
+sudo -u vagrant -i rbenv install 2.0.0-p0
+sudo -u vagrant -i rbenv global 2.0.0-p0
+sudo -u vagrant -i ruby -v
+sudo -u vagrant -i gem install bundler --no-ri --no-rdoc
+sudo -u vagrant -i rbenv rehash
